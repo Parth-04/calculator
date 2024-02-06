@@ -32,5 +32,14 @@ function operator(num1, num2, operator){
     }
 }
 
-let num1, num2, operator;
+let buttons = document.querySelectorAll('button');
+buttons.forEach(function(button) {
+    button.addEventListener('click',() => {
+        let display = document.querySelector(".display");
+        display.innerHTML = `<p>${button.textContent}</p>`;
+    })
+})
+
+
+
 
