@@ -36,7 +36,17 @@ let buttons = document.querySelectorAll('button');
 buttons.forEach(function(button) {
     button.addEventListener('click',() => {
         let display = document.querySelector(".display");
-        display.innerHTML = `<p>${button.textContent}</p>`;
+        if (button.textContent === 'AC'){
+            display.innerHTML = `<p> </p>`;
+        }
+        else if(['/','*','+','-'].includes(button.textContent)){
+            console.log('operator');
+        }
+        else{
+            display.innerHTML += `${button.textContent}`;
+            console.log(display.textContent)
+        }
+        
     })
 })
 
