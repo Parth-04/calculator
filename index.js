@@ -40,7 +40,6 @@ function replace(array, oldValue, newValue){
     })
 }
 
-
 let finalExpression = [];
 let buttons = document.querySelectorAll('button');
 buttons.forEach(function(button) {
@@ -66,32 +65,49 @@ buttons.forEach(function(button) {
             else if(button.textContent === '='){
                 finalExpression.push(display.textContent.trim());
                 replace(finalExpression, '', '0');
-                
+                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == '/'){
                         result = Number(array[index-1]) / Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
+                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == 'x'){
                         result = Number(array[index-1]) * Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
+                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == '+'){
                         result = Number(array[index-1]) + Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
+                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == '-'){
                         result = Number(array[index-1]) - Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
-                display.innerHTML = `<p>${finalExpression[0]}</p>`;
+                console.log(finalExpression);
+                if (String(finalExpression[0]).includes('.')){
+                    if (String(finalExpression[0]).split('.')[1].length > 3){
+                        display.innerHTML = `<p>${Number(finalExpression[0]).toFixed(3)}</p>`;
+                    }
+                    else {
+                        display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
+                    } 
+                }
+                else {
+                    display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
+                }
+                
+                
+                
 
                 finalExpression = [];
             }
