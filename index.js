@@ -56,8 +56,8 @@ buttons.forEach(function(button) {
                 console.log(finalExpression);
                 display.innerHTML = `<p> </p>`;
             }
-            else if(button.textContent === '+/-'){
-    
+            else if(button.textContent === 'Del'){
+
             }
             else if(button.textContent === '%'){
                 
@@ -81,15 +81,15 @@ buttons.forEach(function(button) {
                 })
                 console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
-                    if(value == '+'){
-                        result = Number(array[index-1]) + Number(array[index+1]);
+                    if(value == '-'){
+                        result = Number(array[index-1]) - Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
                 console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
-                    if(value == '-'){
-                        result = Number(array[index-1]) - Number(array[index+1]);
+                    if(value == '+'){
+                        result = Number(array[index-1]) + Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
