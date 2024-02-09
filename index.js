@@ -34,7 +34,7 @@ function operator(num1, num2, operator){
 
 
 
-let finalexpression = ``;
+let finalExpression = [];
 let buttons = document.querySelectorAll('button');
 buttons.forEach(function(button) {
     button.addEventListener('click',() => {
@@ -43,11 +43,11 @@ buttons.forEach(function(button) {
                 display.innerHTML = `<p> </p>`;
             }
             else if(['/','x','+','-'].includes(button.textContent)){
-                finalexpression += display.textContent;
-                finalexpression += button.textContent;
-                console.log(finalexpression);
+                console.log(display.textContent.trim());
+                finalExpression.push(display.textContent.trim());
+                finalExpression.push(button.textContent);
+                console.log(finalExpression);
                 display.innerHTML = `<p> </p>`;
-
             }
             else if(button.textContent === '+/-'){
     
@@ -56,11 +56,12 @@ buttons.forEach(function(button) {
                 
             }
             else if(button.textContent === '='){
-                finalexpression += display.textContent;
+                finalExpression.push(display.textContent.trim());
+                console.log(finalExpression);
+
             }
             else{
                 display.innerHTML += `${button.textContent}`;
-                console.log(display.textContent);
             }
     })
 })
