@@ -46,7 +46,7 @@ buttons.forEach(function(button) {
     button.addEventListener('click',() => {
         let display = document.querySelector(".display");
             if (button.textContent === 'AC'){
-                display.innerHTML = `<p> </p>`;
+                display.innerHTML = `<span></span>`;
                 finalExpression = [];
             }
             else if(['/','x','+','-'].includes(button.textContent)){
@@ -54,10 +54,10 @@ buttons.forEach(function(button) {
                 finalExpression.push(display.textContent.trim());
                 finalExpression.push(button.textContent);
                 console.log(finalExpression);
-                display.innerHTML = `<p> </p>`;
+                display.innerHTML = `<span></span>`;
             }
             else if(button.textContent === 'Del'){
-                display.innerHTML = `<p></p>`;
+                display.innerHTML = `<span></span>`;
             }
             else if(button.textContent === '%'){
                 
@@ -96,17 +96,17 @@ buttons.forEach(function(button) {
                 console.log(finalExpression);
                 if (String(finalExpression[0]).includes('.')){
                     if (String(finalExpression[0]).split('.')[1].length > 3){
-                        display.innerHTML = `<p>${Number(finalExpression[0]).toFixed(3)}</p>`;
+                        display.innerHTML = `<span>${Number(finalExpression[0]).toFixed(3)}</span>`;
                     }
                     else {
-                        display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
+                        display.innerHTML = `<span>${Number(finalExpression[0])}</span>`;
                     } 
                 }
                 else if(finalExpression[0] == 'Infinity'){
-                    display.innerHTML = `<p>Tryin to Divide by 0 eh?</p>`;
+                    display.innerHTML = `<span>Tryin to Divide by 0 eh?</span>`;
                 }
                 else {
-                    display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
+                    display.innerHTML = `<span>${Number(finalExpression[0])}</span>`;
                 }
 
 
@@ -121,7 +121,7 @@ buttons.forEach(function(button) {
                 }
             }
             else{
-                display.innerHTML += `${button.textContent}`;
+                display.innerHTML += `<span>${button.textContent}</span>`;
             }
     })
 })

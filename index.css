@@ -1,8 +1,16 @@
+body{
+    display: flex;
+    text-align: right;
+    justify-content: center;
+}
+
 .calculator{
     display: flex;
     flex-direction: column;
     width: 240px;
     background-color: black;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .rows{
@@ -19,18 +27,20 @@ button{
 button#double-space{
     width: 100px;
     margin: 10px;
-    border-radius: 50%;
+    border-radius: 50px;
 }
 
 .display{
     height: 80px;
-    width: 100%;
+    width: 240px;
     color: white;
     background-color: black;
     font-size: 40px;
-    padding: 10px;
     font-weight: 600;
+    padding: 10px;
+    box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 15px;
 }
 
 .number {
