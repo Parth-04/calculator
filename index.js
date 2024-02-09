@@ -66,7 +66,6 @@ buttons.forEach(function(button) {
             else if(button.textContent === '='){
                 finalExpression.push(display.textContent.trim());
                 replace(finalExpression, '', '0');
-                console.log(finalExpression);
                 
                 finalExpression.forEach((value,index,array) => {
                     if(value == '/'){
@@ -74,31 +73,25 @@ buttons.forEach(function(button) {
                         array.splice(index-1,3,result);
                     }
                 })
-                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == 'x'){
                         result = Number(array[index-1]) * Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
-                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == '+'){
                         result = Number(array[index-1]) + Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
-                console.log(finalExpression);
                 finalExpression.forEach((value,index,array) => {
                     if(value == '-'){
                         result = Number(array[index-1]) - Number(array[index+1]);
                         array.splice(index-1,3,result);
                     }
                 })
-                console.log(finalExpression);
-
-                
-                console.log(finalExpression);
+                display.innerHTML = `<p>${finalExpression[0]}</p>`;
 
                 finalExpression = [];
             }
