@@ -32,6 +32,13 @@ function operator(num1, num2, operator){
     }
 }
 
+function replace(array, oldValue, newValue){
+    array.forEach((element,index,array) => {
+        if (element === oldValue){
+            array[index] = newValue;
+        }
+    })
+}
 
 
 let finalExpression = [];
@@ -41,6 +48,7 @@ buttons.forEach(function(button) {
         let display = document.querySelector(".display");
             if (button.textContent === 'AC'){
                 display.innerHTML = `<p> </p>`;
+                finalExpression = [];
             }
             else if(['/','x','+','-'].includes(button.textContent)){
                 console.log(display.textContent.trim());
@@ -57,8 +65,42 @@ buttons.forEach(function(button) {
             }
             else if(button.textContent === '='){
                 finalExpression.push(display.textContent.trim());
+                replace(finalExpression, '', '0');
+                console.log(finalExpression);
+                
+                finalExpression.forEach((value,index,array) => {
+                    if(value == '/'){
+                        result = Number(array[index-1]) / Number(array[index+1]);
+                        array.splice(index-1,3,result);
+                    }
+                })
+                console.log(finalExpression);
+                finalExpression.forEach((value,index,array) => {
+                    if(value == 'x'){
+                        result = Number(array[index-1]) * Number(array[index+1]);
+                        array.splice(index-1,3,result);
+                    }
+                })
+                console.log(finalExpression);
+                finalExpression.forEach((value,index,array) => {
+                    if(value == '+'){
+                        result = Number(array[index-1]) + Number(array[index+1]);
+                        array.splice(index-1,3,result);
+                    }
+                })
+                console.log(finalExpression);
+                finalExpression.forEach((value,index,array) => {
+                    if(value == '-'){
+                        result = Number(array[index-1]) - Number(array[index+1]);
+                        array.splice(index-1,3,result);
+                    }
+                })
                 console.log(finalExpression);
 
+                
+                console.log(finalExpression);
+
+                finalExpression = [];
             }
             else{
                 display.innerHTML += `${button.textContent}`;
