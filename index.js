@@ -32,24 +32,35 @@ function operator(num1, num2, operator){
     }
 }
 
+
+
+let finalexpression = ``;
 let buttons = document.querySelectorAll('button');
 buttons.forEach(function(button) {
     button.addEventListener('click',() => {
         let display = document.querySelector(".display");
-        if (button.textContent === 'AC'){
-            display.innerHTML = `<p> </p>`;
-        }
-        else if(['/','*','+','-'].includes(button.textContent)){
-            console.log('operator');
-        }
-        else{
-            display.innerHTML += `${button.textContent}`;
-            console.log(display.textContent)
-        }
-        
+            if (button.textContent === 'AC'){
+                display.innerHTML = `<p> </p>`;
+            }
+            else if(['/','x','+','-'].includes(button.textContent)){
+                finalexpression += display.textContent;
+                finalexpression += button.textContent;
+                console.log(finalexpression);
+                display.innerHTML = `<p> </p>`;
+
+            }
+            else if(button.textContent === '+/-'){
+    
+            }
+            else if(button.textContent === '%'){
+                
+            }
+            else if(button.textContent === '='){
+                finalexpression += display.textContent;
+            }
+            else{
+                display.innerHTML += `${button.textContent}`;
+                console.log(display.textContent);
+            }
     })
 })
-
-
-
-
