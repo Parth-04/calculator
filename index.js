@@ -57,7 +57,7 @@ buttons.forEach(function(button) {
                 display.innerHTML = `<p> </p>`;
             }
             else if(button.textContent === 'Del'){
-
+                display.innerHTML = `<p></p>`;
             }
             else if(button.textContent === '%'){
                 
