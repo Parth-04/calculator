@@ -102,14 +102,23 @@ buttons.forEach(function(button) {
                         display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
                     } 
                 }
+                else if(finalExpression[0] == 'Infinity'){
+                    display.innerHTML = `<p>Tryin to Divide by 0 eh?</p>`;
+                }
                 else {
                     display.innerHTML = `<p>${Number(finalExpression[0])}</p>`;
                 }
-                
-                
-                
+
 
                 finalExpression = [];
+            }
+            else if(button.textContent === '.'){
+                if (String(display.textContent).includes('.')){
+                    console.log('Trying to add multiple decimals!');
+                }
+                else{
+                    display.innerHTML += `${button.textContent}`;
+                }
             }
             else{
                 display.innerHTML += `${button.textContent}`;
